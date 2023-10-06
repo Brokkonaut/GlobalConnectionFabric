@@ -4,10 +4,10 @@ import de.cubeside.connection.GlobalServer;
 import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;
 
-public interface GlobalServerDisconnectedEvent {
-    Event<GlobalServerDisconnectedEvent> EVENT = EventFactory.createArrayBacked(GlobalServerDisconnectedEvent.class,
+public interface GlobalServerDisconnectedCallback {
+    Event<GlobalServerDisconnectedCallback> EVENT = EventFactory.createArrayBacked(GlobalServerDisconnectedCallback.class,
             (listeners) -> (server) -> {
-                for (GlobalServerDisconnectedEvent listener : listeners) {
+                for (GlobalServerDisconnectedCallback listener : listeners) {
                     listener.onDisconnect(server);
                 }
             });

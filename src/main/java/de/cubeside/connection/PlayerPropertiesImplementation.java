@@ -4,7 +4,7 @@ import com.google.common.base.Preconditions;
 import de.cubeside.connection.event.GlobalDataCallback;
 import de.cubeside.connection.event.GlobalPlayerDisconnectedCallback;
 import de.cubeside.connection.event.GlobalPlayerPropertyChangedCallback;
-import de.cubeside.connection.event.GlobalServerConnectedEvent;
+import de.cubeside.connection.event.GlobalServerConnectedCallback;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
@@ -38,7 +38,7 @@ class PlayerPropertiesImplementation implements PlayerPropertiesAPI {
 
         GlobalDataCallback.EVENT.register(this::onGlobalData);
         GlobalPlayerDisconnectedCallback.EVENT.register(this::onGlobalPlayerDisconnected);
-        GlobalServerConnectedEvent.EVENT.register(this::onGlobalServerConnected);
+        GlobalServerConnectedCallback.EVENT.register(this::onGlobalServerConnected);
     }
 
     public void onGlobalPlayerDisconnected(GlobalServer server, GlobalPlayer player, boolean leftTheNetwork) {

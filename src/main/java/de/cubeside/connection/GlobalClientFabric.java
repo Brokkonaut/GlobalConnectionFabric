@@ -4,8 +4,8 @@ import com.mojang.authlib.GameProfile;
 import de.cubeside.connection.event.GlobalDataCallback;
 import de.cubeside.connection.event.GlobalPlayerDisconnectedCallback;
 import de.cubeside.connection.event.GlobalPlayerJoinedCallback;
-import de.cubeside.connection.event.GlobalServerConnectedEvent;
-import de.cubeside.connection.event.GlobalServerDisconnectedEvent;
+import de.cubeside.connection.event.GlobalServerConnectedCallback;
+import de.cubeside.connection.event.GlobalServerDisconnectedCallback;
 import java.util.ArrayDeque;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
@@ -91,13 +91,13 @@ public class GlobalClientFabric extends GlobalClient {
     @Override
     protected void onServerConnected(GlobalServer server) {
         // GlobalClientMod.LOGGER.debug("onServerConnected: " + server.getName());
-        GlobalServerConnectedEvent.EVENT.invoker().onConnect(server);
+        GlobalServerConnectedCallback.EVENT.invoker().onConnect(server);
     }
 
     @Override
     protected void onServerDisconnected(GlobalServer server) {
         // GlobalClientMod.LOGGER.debug("onServerDisconnected: " + server.getName());
-        GlobalServerDisconnectedEvent.EVENT.invoker().onDisconnect(server);
+        GlobalServerDisconnectedCallback.EVENT.invoker().onDisconnect(server);
     }
 
     @Override
